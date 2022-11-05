@@ -1,0 +1,62 @@
+{
+  "name": "sap-btp-event-mesh",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "license": "Apache-2.0",	
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^6",
+    "@sap/cds-dk": "^6.3.0",
+    "@sap/xb-msg-amqp-v100": "^0.9.58",
+    "cds-swagger-ui-express": "^0.5.0",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "sqlite3": "^5.0.4"
+  },
+  "scripts": {
+    "build": "cds build",
+    "start": "cds run"
+  },
+  "engines": {
+    "node": "^16"
+  },
+  "cds": {
+    "requires": {
+      "messaging": {
+        "kind": "enterprise-messaging",
+        "queue": {
+          "name": "default/sgonzmot.com/temp/QUEUE_EVENT_MESH_TEST"
+        },
+        "authorities": [
+          "$ACCEPT_GRANTED_AUTHORITIES"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
+    },
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
+    },
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
+    }
+  }
+}
